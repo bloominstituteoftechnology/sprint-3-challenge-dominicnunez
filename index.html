@@ -102,10 +102,10 @@
         this.ints.push(int);
         return this.ints;
       }
-      
+
       getEveryNth (n) {
         let everyNth = [];
-        for (let i = 0; i < this.ints.length; i+n) {
+        for (let i = 0; i < (this.ints).length; i += n) {
           everyNth.push(Number(this.ints[i]));
         }
         return everyNth;
@@ -114,6 +114,7 @@
       getAllReversed () {
         return this.ints.reverse();
       }
+
     }
 
     // 👉 CHALLENGE 2 NerfGun
@@ -131,7 +132,10 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
-
+      constructor (clipSize) {
+        this.ammo = clipSize;
+        this.saftey = true;
+      }
     }
 
     // 👉 CHALLENGE 3 EBook
