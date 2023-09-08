@@ -58,7 +58,62 @@
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
+      constructor(...integers) {
+        this.ints = [...integers];
 
+      }
+      getAll() {
+        return this.ints;
+      }
+
+      getEvens() {
+        let evens = [];
+        for (let i in this.ints) {
+          if ((this.ints[i] % 2) == 0) {
+            evens.push(Number(this.ints[i]));
+          }
+        }
+        return evens;
+      }
+
+      getNegatives () {
+        let negatives = [];
+        for (let i in this.ints) {
+          if (this.ints[i] < 0) {
+            negatives.push(Number(this.ints[i]));
+          }
+        }
+        return negatives;
+      }
+
+      getAllSquared () {
+        let allSquared = [];
+        for (let i in this.ints) {
+          allSquared.push(Number(this.ints[i]) * Number(this.ints[i]));
+        }
+        return allSquared;
+      }
+
+      pop () {
+        return this.ints.pop();
+      }
+
+      push (int) {
+        this.ints.push(int);
+        return this.ints;
+      }
+      
+      getEveryNth (n) {
+        let everyNth = [];
+        for (let i = 0; i < this.ints.length; i+n) {
+          everyNth.push(Number(this.ints[i]));
+        }
+        return everyNth;
+      }
+
+      getAllReversed () {
+        return this.ints.reverse();
+      }
     }
 
     // 👉 CHALLENGE 2 NerfGun
