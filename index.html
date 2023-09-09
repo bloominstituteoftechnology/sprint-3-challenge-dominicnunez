@@ -242,11 +242,52 @@
       //      console.log(list) // prints ["a"]
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
-      constructor(...strings){
+      constructor(...names){
+        this.names = [...names];
+        this.ants = [];
 
+        for (let i in this.names) {
+          const ant = {
+            name: this.names[i],
+            health: 100
+          }
+          this.ants.push(ant);
+        }
       }
 
-    }
+      work () {
+        let antCount = this.ants.length;
+        if (antCount) {
+          this.ants = this.ants.map(ant => {
+            ant.health -= 20;
+            return ant});
+          this.ants = this.ants.filter(ant => ant.health > 0);
+          return `${antCount} ants starting work!`;
+        } else {
+          return "No ants here. Did you work them to death?";
+        }
+      }
+      // 🧠 Instances of AntFarm have a `feed` method:
+      //      * The method takes as its only argument the name of the particular ant(s) to feed
+      //      * When invoked, the ant(s) by the given name obtain a health increase of 15 points
+      //      * The method returns the string "Yum!" if any ants by the given name exist
+      //      * The method returns the string "<ant name> not found!" if no ants by the given name exist
+      feed (ant) {
+        let foundFlag = false;
+        this.ants.forEach(currentAnt => {
+          if (currentAnt.name === ant) {
+            currentAnt.health += 15;
+            foundFlag = true;
+          }
+        });
+
+        if (foundFlag) {
+          return "Yum!";
+        } else {
+          return `${ant} not found!`;
+        }
+      }
+  }
 
     // 🧪 TESTS, do not make any changes below this line ===================
     // 🧪 TESTS, do not make any changes below this line ===================
