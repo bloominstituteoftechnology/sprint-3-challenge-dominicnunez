@@ -161,8 +161,10 @@
         let phrase = " projectiles left!";
         let reloadedClip = this.clip + darts;
         let reloadCheck = (reloadedClip > this.capacity);
+        let dartCheckOne = typeof(darts) != "number";
+        let dartCheckTwo = darts < 1;
         
-        if (darts < 1 || typeof(darts) != "number") {
+        if (dartCheckOne || dartCheckTwo) {
           return "Error reloading!";
         } else if (reloadCheck) {
           this.clip = this.capacity;
@@ -240,6 +242,9 @@
       //      console.log(list) // prints ["a"]
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
+      constructor(...strings){
+
+      }
 
     }
 
