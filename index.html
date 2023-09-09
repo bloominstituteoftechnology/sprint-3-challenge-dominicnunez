@@ -190,7 +190,22 @@
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
+      constructor(bookContents, charPerPage){
+        this.book = bookContents;
+        this.charPerPage = charPerPage;
+        this.currentPage = "";
+      }
 
+      next(){
+        this.currentPage = (this.book).slice(0, this.charPerPage);
+        this.book = (this.book).replace(this.currentPage, "");
+
+        if (this.currentPage == "") {
+          return null
+        } else {
+          return this.currentPage;
+        }
+      }
     }
 
     // 👉 CHALLENGE 4 AntFarm
