@@ -160,7 +160,7 @@
       reload (darts) {
         let phrase = " projectiles left!";
         let reloadedClip = this.clip + darts;
-        let reloadCheck = (reloadedClip > this.capacity);
+        let reloadCheck = reloadedClip > this.capacity;
         let dartCheckOne = typeof(darts) != "number";
         let dartCheckTwo = darts < 1;
         
