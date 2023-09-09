@@ -132,9 +132,45 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
-      constructor (clipSize) {
-        this.ammo = clipSize;
+      constructor (clip) {
+        this.capacity = clip;
+        this.clip = this.capacity;
         this.saftey = true;
+      }
+
+      toggleSafety() {
+        if (this.saftey) {
+          this.saftey = false;
+          return "Safety disabled!"
+        } else {
+          this.saftey = true;
+          return "Safety enabled!";
+        }
+      }
+
+      shoot () {
+          if (this.clip && !(this.saftey)) {
+            this.clip -= 1;
+            return "Bang!";
+          } else {
+            return "Click!";
+          }
+        }
+
+      reload (darts) {
+        let phrase = " projectiles left!";
+        let reloadedClip = this.clip + darts;
+        let reloadCheck = (reloadedClip > this.capacity);
+        
+        if (darts < 1 || typeof(darts) != "number") {
+          return "Error reloading!";
+        } else if (reloadCheck) {
+          this.clip = this.capacity;
+          return this.clip + phrase;
+        } else {
+          this.clip = reloadedClip;
+          return this.clip + phrase;
+        }
       }
     }
 
