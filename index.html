@@ -258,9 +258,10 @@
       work () {
         let antCount = this.ants.length;
         if (antCount) {
-          this.ants = this.ants.map(ant => {
+          /* this.ants = this.ants.map(ant => {
             ant.health -= 20;
-            return ant});
+            return ant}); */// this can be done with a single line using forEach instead of map
+          this.ants.forEach(ant => ant.health -= 20);
           this.ants = this.ants.filter(ant => ant.health > 0);
           return `${antCount} ants starting work!`;
         } else {
