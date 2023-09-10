@@ -121,6 +121,10 @@
     class NerfGun {
       // 🧠 Constructor takes one argument: the total number of projectiles supported by the instance
       // 🧠 New instances initialize fully loaded and with the safety on
+      // 🧠 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+      // 🧠 Instances have a `toggleSafety` method that takes no arguments and switches the state of the safety
+      //      * When engaging the safety, return "Safety enabled!"
+      //      * When disengaging the safety, return "Safety disabled!"
       // 🧠 Instances have a `shoot` method that takes no arguments:
       //      * If there is ammo left and safety is off, method consumes one projectile and returns the string "Bang!"
       //      * Shooting on empty or with the safety on, returns the string "Click!"
@@ -128,13 +132,9 @@
       //      * Reloading returns a string in the following format: "<number> projectiles left!"
       //      * Reloading by more than capacity fills the instance to capacity
       //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
-      // 🧠 Instances have a `toggleSafety` method that takes no arguments and switches the state of the safety
-      //      * When engaging the safety, return "Safety enabled!"
-      //      * When disengaging the safety, return "Safety disabled!"
-      // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
       constructor (clip) {
         this.capacity = clip;
-        this.clip = this.capacity;
+        this.clip = clip;
         this.saftey = true;
       }
 
